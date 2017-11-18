@@ -1,0 +1,46 @@
+{
+  "name": "Pokedex",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Dennis Nguyen <nguyendennist97@Gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --env.prod -p",
+    "dev-build": "webpack --env.dev",
+    "dev-server": "webpack-dev-server --env.dev",
+    "lint": "./node_modules/.bin/eslint src",
+    "prebuild": "rimraf dist",
+    "predev-build": "rimraf dist",
+    "test": "jest",
+    "update-snapshot": "jest --updateSnapshot",
+    "validate": "npm-run-all --parallel lint build test"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "opt --in pre-commit --exec \"yarn run validate\""
+    }
+  },
+  "dependencies": {
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^21.2.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.11.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-react": "^7.4.0",
+    "ghooks": "^2.0.0",
+    "jest": "^21.2.1",
+    "react-test-renderer": "^16.1.1",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.8.1",
+    "webpack-config-utils": "^2.3.0",
+    "webpack-dev-server": "^2.9.4"
+  }
+}
