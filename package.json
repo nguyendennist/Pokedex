@@ -8,12 +8,12 @@
     "build": "webpack --env.prod -p",
     "dev-build": "webpack --env.dev",
     "dev-server": "webpack-dev-server --env.dev",
-    "lint": "./node_modules/.bin/eslint src",
+    "lint": "./node_modules/.bin/eslint src/**/*.{js,jsx}",
     "prebuild": "rimraf dist",
     "predev-build": "rimraf dist",
     "test": "jest",
     "update-snapshot": "jest --updateSnapshot",
-    "validate": "npm-run-all --parallel lint build test"
+    "validate": "yarn run --parallel lint build test"
   },
   "config": {
     "ghooks": {
