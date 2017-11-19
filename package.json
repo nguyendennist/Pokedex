@@ -20,6 +20,9 @@
       "pre-commit": "opt --in pre-commit --exec \"yarn run validate\""
     }
   },
+	"jest": {
+    "moduleDirectories": ["node_modules", "src"]
+	},
   "dependencies": {
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
