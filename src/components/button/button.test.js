@@ -2,10 +2,18 @@ import React from 'react';
 import { create } from 'react-test-renderer';
 import Button from './Button.jsx';
 
-it('renders correctly', () => {
-	const tree = create(
-		<Button name='test' />
-	).toJSON();
+describe('unit tests', () => {
+	test('should be defined', () => {
+		expect(Button).toBeDefined();
+	});
+});
 
-	expect(tree).toMatchSnapshot();
+describe('ui tests', () => {
+	test('should render correctly', () => {
+		const tree = create(
+			<Button name='test' />
+		).toJSON();
+
+		expect(tree).toMatchSnapshot();
+	});
 });
