@@ -11,6 +11,7 @@
     "lint": "./node_modules/.bin/eslint src/**/*.{js,jsx}",
     "prebuild": "rimraf dist",
     "predev-build": "rimraf dist",
+		"server": "http-server",
     "test": "jest",
     "update-snapshot": "jest --updateSnapshot",
     "validate": "yarn run --parallel lint build test"
@@ -20,9 +21,12 @@
       "pre-commit": "opt --in pre-commit --exec \"yarn run validate\""
     }
   },
-	"jest": {
-    "moduleDirectories": ["node_modules", "src"]
-	},
+  "jest": {
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
+  },
   "dependencies": {
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
@@ -39,6 +43,7 @@
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.4.0",
     "ghooks": "^2.0.0",
+    "http-server": "^0.10.0",
     "jest": "^21.2.1",
     "react-test-renderer": "^16.1.1",
     "rimraf": "^2.6.2",
