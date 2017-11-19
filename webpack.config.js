@@ -21,6 +21,9 @@ module.exports = env => {
 			path: path,
 			pathinfo: ifNotProd(),
 			publicPath: dist
+		},
+		resolve: {
+			modules: ['node_modules', 'src']
 		}
 	};
 
