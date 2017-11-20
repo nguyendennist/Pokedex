@@ -1,0 +1,3 @@
+const INCREMENT_OFFSET = 'INCREMENT_OFFSET';
+
+export default INCREMENT_OFFSET;
