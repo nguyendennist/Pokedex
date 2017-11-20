@@ -1,5 +1,0 @@
-const ADD_POKEMON = 'ADD_POKEMON';
-const INCREMENT_OFFSET = 'INCREMENT_OFFSET';
-
-export default ADD_POKEMON;
-export default INCREMENT_OFFSET;

@@ -1,4 +1,4 @@
-import ADD_POKEMON from 'constants';
+import ADD_POKEMON from 'constants/add-pokemon';
 
 const addPokemon = pokemon => ({
 	type: ADD_POKEMON,

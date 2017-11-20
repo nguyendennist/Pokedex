@@ -6,7 +6,7 @@ describe('unit tests', () => {
 	test('should be defined', () => {
 		expect(App).toBeDefined();
 	});
-})
+});
 
 describe('ui tests', () => {
 	test('should render correctly', () => {
