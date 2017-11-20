@@ -1,16 +1,9 @@
 import ADD_POKEMON from 'constants/add-pokemon';
+import addPokemon from './add-pokemon/add-pokemon';
 
 const initialState = {
 	pokemons: []
 };
-
-const addPokemon = (state, action) => ({
-	...state,
-	pokemons: [
-		...state.pokemons,
-		action.payload
-	]
-})
 
 const pokemon = (state = initialState, action) => {
 	switch(action.type) {

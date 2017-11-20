@@ -1,4 +1,3 @@
-import addPokemon from 'actions/pokemon/add-pokemon';
 import pokemon from './pokemon';
 
 describe('unit tests', () => {
@@ -6,16 +5,19 @@ describe('unit tests', () => {
 		expect(pokemon).toBeDefined();
 	});
 
-	test('should add a pokemon', () => {
-		const action = addPokemon({
-			height: 7,
-			id: 1,
-			name: 'bulbasaur',
-			sprites: {
-				front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
-			},
-			weight: 69
-		});
+	test('should return state when given an unknown action', () => {
+		const action = {
+			type: 'REMOVE_POKEMON',
+			payload: {
+				height: 11,
+				id: 12,
+				name: 'butterfree',
+				sprites: {
+					'front_default': 'http://pokeapi.co/media/sprites/pokemon/12.png',
+				},
+				weight: 320
+			}
+		};
 
 		const state = {
 			pokemons: [
@@ -43,17 +45,31 @@ describe('unit tests', () => {
 						'front_default': 'http://pokeapi.co/media/sprites/pokemon/12.png',
 			    },
 					weight: 320
-				},
-				{
-					height: 7,
-					id: 1,
-					name: 'bulbasaur',
-					sprites: {
-						front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
-					},
-					weight: 69
 				}
 			]
+		});
+	});
+
+	test('should return state with an empty pokemons array when given no state', () => {
+		const action = {
+			type: 'REMOVE_POKEMON',
+			payload: {
+				height: 11,
+				id: 12,
+				name: 'butterfree',
+				sprites: {
+					'front_default': 'http://pokeapi.co/media/sprites/pokemon/12.png',
+				},
+				weight: 320
+			}
+		};
+
+		const state = undefined;
+
+		const result = pokemon(state, action);
+
+		expect(result).toEqual({
+			pokemons: []
 		});
 	});
 });
