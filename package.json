@@ -14,12 +14,7 @@
     "server": "http-server",
     "test": "jest",
     "update-snapshot": "jest --updateSnapshot",
-    "validate": "yarn run --parallel lint build test"
-  },
-  "config": {
-    "ghooks": {
-      "pre-commit": "opt --in pre-commit --exec \"yarn run validate\""
-    }
+    "validate": "npm-run-all --parallel lint build test"
   },
   "jest": {
     "moduleDirectories": [
@@ -41,9 +36,9 @@
     "eslint": "^4.11.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-react": "^7.4.0",
-    "ghooks": "^2.0.0",
     "http-server": "^0.10.0",
     "jest": "^21.2.1",
+    "npm-run-all": "^4.1.2",
     "react-test-renderer": "^16.1.1",
     "rimraf": "^2.6.2",
     "webpack": "^3.8.1",

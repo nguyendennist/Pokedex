@@ -8,7 +8,7 @@ describe('unit tests', () => {
 	test('should have the same properties and values', () => {
 		const result = addPokemon('Charizard');
 
-		expect(result.type === 'ADD_POKEMON');
-		expect(result.type === 'Charizard');
+		expect(result.type).toBe('ADD_POKEMON');
+		expect(result.payload).toBe('Charizard');
 	});
 });
