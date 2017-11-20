@@ -2,6 +2,7 @@ import ADD_POKEMON from 'constants/add-pokemon';
 import addPokemon from './add-pokemon/add-pokemon';
 
 const initialState = {
+	offset: 0,
 	pokemons: []
 };
 

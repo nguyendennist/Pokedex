@@ -69,6 +69,7 @@ describe('unit tests', () => {
 		const result = pokemon(state, action);
 
 		expect(result).toEqual({
+			offset: 0,
 			pokemons: []
 		});
 	});

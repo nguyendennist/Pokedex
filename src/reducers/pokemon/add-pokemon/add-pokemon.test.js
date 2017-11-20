@@ -5,7 +5,7 @@ describe('unit tests', () => {
 		expect(addPokemon).toBeDefined();
 	});
 
-	test('should add a pokemon', () => {
+	test('should add a pokemon & retain previous state values', () => {
 		const action ={
 			type: 'ADD_POKEMON',
 			payload: {
@@ -20,6 +20,7 @@ describe('unit tests', () => {
 		};
 
 		const state = {
+			offset: 0,
 			pokemons: [
 				{
 					height: 11,
@@ -36,6 +37,7 @@ describe('unit tests', () => {
 		const result = addPokemon(state, action);
 
 		expect(result).toEqual({
+			offset: 0,
 			pokemons: [
 				{
 					height: 11,
