@@ -4,6 +4,6 @@ const addPokemon = (state, action) => ({
 		...state.pokemons,
 		action.payload
 	]
-})
+});
 
 export default addPokemon;

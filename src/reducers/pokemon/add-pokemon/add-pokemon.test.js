@@ -28,7 +28,7 @@ describe('unit tests', () => {
 					name: 'butterfree',
 					sprites: {
 						'front_default': 'http://pokeapi.co/media/sprites/pokemon/12.png',
-			    },
+					},
 					weight: 320
 				}
 			]
@@ -45,7 +45,7 @@ describe('unit tests', () => {
 					name: 'butterfree',
 					sprites: {
 						'front_default': 'http://pokeapi.co/media/sprites/pokemon/12.png',
-			    },
+					},
 					weight: 320
 				},
 				{

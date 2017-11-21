@@ -2,6 +2,7 @@
 
 exports[`ui tests should render correctly 1`] = `
 <input
+  onClick={[Function]}
   type="button"
   value="test"
 />

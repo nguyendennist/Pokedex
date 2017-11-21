@@ -12,14 +12,14 @@ const initialState = {
 
 const pokemon = (state = initialState, action) => {
 	switch(action.type) {
-		case ADD_POKEMON:
-			return addPokemon(state, action);
-		case DECREMENT_OFFSET:
-			return decrementOffset(state, action);
-		case INCREMENT_OFFSET:
-			return incrementOffset(state, action);
-		default:
-			return state;
+	case ADD_POKEMON:
+		return addPokemon(state, action);
+	case DECREMENT_OFFSET:
+		return decrementOffset(state, action);
+	case INCREMENT_OFFSET:
+		return incrementOffset(state, action);
+	default:
+		return state;
 	}
 };
 

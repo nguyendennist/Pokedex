@@ -8,7 +8,7 @@
     "build": "webpack --env.prod -p",
     "dev-build": "webpack --env.dev",
     "dev-server": "webpack-dev-server --env.dev",
-    "lint": "./node_modules/.bin/eslint src/**/*.{js,jsx}",
+    "lint": "eslint src/**",
     "prebuild": "rimraf dist",
     "predev-build": "rimraf dist",
     "server": "http-server",
@@ -31,6 +31,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "eslint": "^4.11.0",

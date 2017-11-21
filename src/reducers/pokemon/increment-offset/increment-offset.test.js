@@ -9,7 +9,7 @@ describe('unit tests', () => {
 		const action = {
 			type: 'INCREMENT_OFFSET',
 			payload: 20
-		}
+		};
 
 		const state = {
 			offset: 0,

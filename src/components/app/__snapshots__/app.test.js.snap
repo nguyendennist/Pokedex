@@ -6,10 +6,12 @@ exports[`ui tests should render correctly 1`] = `
     hi!
   </h1>
   <input
+    onClick={[Function]}
     type="button"
     value="prev"
   />
   <input
+    onClick={[Function]}
     type="button"
     value="next"
   />

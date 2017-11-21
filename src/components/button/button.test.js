@@ -11,7 +11,7 @@ describe('unit tests', () => {
 describe('ui tests', () => {
 	test('should render correctly', () => {
 		const tree = create(
-			<Button name='test' />
+			<Button name='test' onClick={() => {}}/>
 		).toJSON();
 
 		expect(tree).toMatchSnapshot();
