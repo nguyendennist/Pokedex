@@ -8,7 +8,7 @@
     "build": "webpack --env.prod -p",
     "dev-build": "webpack --env.dev",
     "dev-server": "webpack-dev-server --env.dev",
-    "lint": "eslint src/**",
+    "lint": "eslint --ext .jsx,.js src",
     "prebuild": "rimraf dist",
     "predev-build": "rimraf dist",
     "server": "http-server",
@@ -26,7 +26,8 @@
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-redux": "^5.0.6",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "whatwg-fetch": "^2.0.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

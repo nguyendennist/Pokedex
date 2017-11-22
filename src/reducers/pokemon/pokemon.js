@@ -4,6 +4,8 @@ import DECREMENT_OFFSET from 'constants/decrement-offset';
 import decrementOffset from './decrement-offset/decrement-offset';
 import INCREMENT_OFFSET from 'constants/increment-offset';
 import incrementOffset from './increment-offset/increment-offset';
+import SET_POKEMONS from 'constants/set-pokemons';
+import setPokemons from './set-pokemons/set-pokemons';
 
 const initialState = {
 	offset: 0,
@@ -18,6 +20,8 @@ const pokemon = (state = initialState, action) => {
 		return decrementOffset(state, action);
 	case INCREMENT_OFFSET:
 		return incrementOffset(state, action);
+	case SET_POKEMONS:
+		return setPokemons(state, action);
 	default:
 		return state;
 	}

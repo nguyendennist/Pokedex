@@ -6,7 +6,7 @@ describe('unit tests', () => {
 	});
 
 	test('should add a pokemon & retain previous state values', () => {
-		const action ={
+		const action = {
 			type: 'ADD_POKEMON',
 			payload: {
 				height: 7,

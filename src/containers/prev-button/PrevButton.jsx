@@ -4,12 +4,21 @@ import PropTypes from 'prop-types';
 import Button from 'components/button/Button.jsx';
 import decrementOffset from 'actions/pokemon/decrement-offset/decrement-offset';
 
-const PrevButton = ({handleOffsetChange}) => (
-	<Button name='prev' onClick={handleOffsetChange} />
-);
+const PrevButton = props => {
+	const prevPage = () => {
+		if (props.pokemons.length === 20) {
+			props.handleOffsetChange();
+			setTimeout(() => props.fetchPokemons(), 250);
+		}
+	};
+
+	return (<Button className='prev-button' name='prev' onClick={prevPage} />);
+};
 
 PrevButton.propTypes = {
-	handleOffsetChange: PropTypes.func.isRequired
+	fetchPokemons: PropTypes.func.isRequired,
+	handleOffsetChange: PropTypes.func.isRequired,
+	pokemons: PropTypes.array.isRequired
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -18,6 +27,8 @@ const mapDispatchToProps = dispatch => ({
 	}
 });
 
-const mapStateToProps = undefined;
+const mapStateToProps = state => ({
+	pokemons: state.pokemons
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(PrevButton);

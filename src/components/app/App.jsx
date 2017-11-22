@@ -1,15 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from 'store';
-import NextButton from 'containers/next-button/NextButton.jsx';
-import PrevButton from 'containers/prev-button/PrevButton.jsx';
+import Pokedex from 'containers/pokedex/Pokedex.jsx';
 
 const App = () => (
 	<Provider store={store}>
 		<div>
-			<h1>hi!</h1>
-			<PrevButton />
-			<NextButton />
+			<Pokedex />
 		</div>
 	</Provider>
 );

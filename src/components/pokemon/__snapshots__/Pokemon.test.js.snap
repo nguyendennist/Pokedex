@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui tests should render correctly 1`] = `
+<div
+  className="pokemon"
+>
+  <img
+    alt="A pokemon named bulbasaur"
+    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+  />
+  <p
+    className="pokemon-text"
+  >
+    bulbasaur
+  </p>
+</div>
+`;

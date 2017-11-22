@@ -1,18 +1,21 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { create } from 'react-test-renderer';
-import App from './App.jsx';
-import 'isomorphic-fetch';
+import store from 'store';
+import PokemonList from './PokemonList';
 
 describe('unit tests', () => {
 	test('should be defined', () => {
-		expect(App).toBeDefined();
+		expect(PokemonList).toBeDefined();
 	});
 });
 
 describe('ui tests', () => {
 	test('should render correctly', () => {
 		const tree = create(
-			<App />
+			<Provider store={store}>
+				<PokemonList />
+			</Provider>
 		).toJSON();
 
 		expect(tree).toMatchSnapshot();

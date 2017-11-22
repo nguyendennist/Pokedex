@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui tests should render correctly 1`] = `
+<div>
+  <div
+    className="buttons"
+  >
+    <div
+      className="prev-button"
+      onClick={[Function]}
+    >
+      <p>
+        prev
+      </p>
+    </div>
+    <div
+      className="next-button"
+      onClick={[Function]}
+    >
+      <p>
+        next
+      </p>
+    </div>
+  </div>
+  <div />
+</div>
+`;
