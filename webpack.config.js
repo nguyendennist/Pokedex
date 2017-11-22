@@ -3,7 +3,13 @@ const {getIfUtils} = require('webpack-config-utils');
 module.exports = env => {
 	const {ifProd, ifNotProd} = getIfUtils(env);
 	const dist = '/dist';
+	const loaders = ['babel-loader'];
 	const path = __dirname + dist;
+
+	if (env.dev) {
+		loaders.push('eslint-loader');
+	}
+
 	const config = {
 		entry: './src/index.js',
 		devtool: ifProd('source-map', 'eval'),
@@ -12,7 +18,7 @@ module.exports = env => {
 				{
 					exclude: /node_modules/,
 					test: /\.jsx?$/,
-					use: ['babel-loader', 'eslint-loader']
+					use: loaders
 				}
 			]
 		},
