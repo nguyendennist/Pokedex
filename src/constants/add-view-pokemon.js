@@ -1,0 +1,3 @@
+const ADD_VIEW_POKEMON = 'ADD_VIEW_POKEMON';
+
+export default ADD_VIEW_POKEMON;

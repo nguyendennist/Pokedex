@@ -1,11 +1,11 @@
-import addPokemon from './add-pokemon';
+import cachePokemon from './cache-pokemon';
 
 describe('unit tests', () => {
 	test('should be defined', () => {
-		expect(addPokemon).toBeDefined();
+		expect(cachePokemon).toBeDefined();
 	});
 
-	test('should add a pokemon & retain previous state values', () => {
+	test('should cache a pokemon & retain previous state values', () => {
 		const action = {
 			type: 'ADD_POKEMON',
 			payload: {
@@ -34,7 +34,7 @@ describe('unit tests', () => {
 			]
 		};
 
-		const result = addPokemon(state, action);
+		const result = cachePokemon(state, action);
 
 		expect(result).toEqual({
 			offset: 0,
