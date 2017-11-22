@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import addPokemon from 'actions/pokemon/add-pokemon/add-pokemon';
+import addViewPokemon from 'actions/pokemon/add-view-pokemon/add-view-pokemon';
+import cachePokemon from 'actions/pokemon/cache-pokemon/cache-pokemon';
 import NextButton from 'containers/next-button/NextButton.jsx';
 import PokemonList from 'containers/pokemon-list/PokemonList.jsx';
 import PrevButton from 'containers/prev-button/PrevButton.jsx';
-import setPokemons from 'actions/pokemon/set-pokemons/set-pokemons';
+import setViewPokemons from 'actions/pokemon/set-view-pokemons/set-view-pokemons';
 
 class Pokedex extends Component {
 	constructor(props) {
@@ -20,24 +21,34 @@ class Pokedex extends Component {
 		let id = offset + 1;
 		let start = id;
 		const stop = start + 20;
-		this.props.handleSetPokemonsChange([]);
+		const pokemonsAreCached = offset < this.props.pokemons.length;
 
-		while (start < stop) {
-			(id => {
-				const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-				fetch(url, {
-					method: 'GET'
-				}).then(response => {
-					response.json().then(pokemonData => {
-						if (pokemonData.id > offset) {
-							this.props.handleAddPokemonChange(pokemonData);
-						}
+
+		if (pokemonsAreCached) {
+			const cachedPokemon = this.props.pokemons.slice(offset, offset + 20);
+			this.props.handleSetViewPokemonsChange(cachedPokemon);
+		} else {
+			this.props.handleSetViewPokemonsChange([]);
+
+			while (start < stop) {
+				(id => {
+					const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+
+					fetch(url, {
+						method: 'GET'
+					}).then(response => {
+						response.json().then(pokemonData => {
+							this.props.handleAddViewPokemonChange(pokemonData);
+							this.props.handleCachePokemonChange(pokemonData);
+						});
 					});
-				});
-			})(id);
 
-			id++;
-			start++;
+				})(id);
+
+				id++;
+				start++;
+			}
+
 		}
 	}
 
@@ -55,22 +66,30 @@ class Pokedex extends Component {
 }
 
 Pokedex.propTypes = {
-	handleAddPokemonChange: PropTypes.func.isRequired,
-	handleSetPokemonsChange: PropTypes.func.isRequired,
-	offset: PropTypes.number.isRequired
+	handleAddViewPokemonChange: PropTypes.func.isRequired,
+	handleCachePokemonChange: PropTypes.func.isRequired,
+	handleSetViewPokemonsChange: PropTypes.func.isRequired,
+	offset: PropTypes.number.isRequired,
+	pokemons: PropTypes.array.isRequired,
+	viewPokemons: PropTypes.array.isRequired
 };
 
 const mapDispatchToProps = dispatch => ({
-	handleAddPokemonChange: pokemon => {
-		dispatch(addPokemon(pokemon));
+	handleAddViewPokemonChange: pokemon => {
+		dispatch(addViewPokemon(pokemon));
 	},
-	handleSetPokemonsChange: pokemon => {
-		dispatch(setPokemons(pokemon));
+	handleCachePokemonChange: pokemon => {
+		dispatch(cachePokemon(pokemon));
+	},
+	handleSetViewPokemonsChange: pokemon => {
+		dispatch(setViewPokemons(pokemon));
 	}
 });
 
 const mapStateToProps = state => ({
-	offset: state.offset
+	offset: state.offset,
+	pokemons: state.pokemons,
+	viewPokemons: state.viewPokemons
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pokedex);

@@ -6,7 +6,9 @@ import incrementOffset from 'actions/pokemon/increment-offset/increment-offset';
 
 const NextButton = props => {
 	const nextPage = () => {
-		if (props.pokemons.length === 20) {
+		const doneLoading = props.viewPokemons.length % 20 === 0;
+
+		if (doneLoading) {
 			props.handleOffsetChange();
 			setTimeout(() => props.fetchPokemons(), 250);
 		}
@@ -18,7 +20,8 @@ const NextButton = props => {
 NextButton.propTypes = {
 	fetchPokemons: PropTypes.func.isRequired,
 	handleOffsetChange: PropTypes.func.isRequired,
-	pokemons: PropTypes.array.isRequired
+	offset: PropTypes.number.isRequired,
+	viewPokemons: PropTypes.array.isRequired
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -28,7 +31,8 @@ const mapDispatchToProps = dispatch => ({
 });
 
 const mapStateToProps = state => ({
-	pokemons: state.pokemons
+	offset: state.offset,
+	viewPokemons: state.viewPokemons
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NextButton);

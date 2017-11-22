@@ -1,15 +1,15 @@
-import setPokemons from './set-pokemons';
+import setViewPokemons from './set-view-pokemons';
 
 describe('unit tests', () => {
 	test('should be defined', () => {
-		expect(setPokemons).toBeDefined();
+		expect(setViewPokemons).toBeDefined();
 	});
 
 	test('should have the same properties and values', () => {
-		const result = setPokemons([]);
+		const result = setViewPokemons([]);
 
 		expect(result).toEqual({
-			type: 'SET_POKEMONS',
+			type: 'SET_VIEW_POKEMONS',
 			payload: []
 		});
 	});

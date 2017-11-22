@@ -70,7 +70,8 @@ describe('unit tests', () => {
 
 		expect(result).toEqual({
 			offset: 0,
-			pokemons: []
+			pokemons: [],
+			viewPokemons: []
 		});
 	});
 });

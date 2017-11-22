@@ -1,0 +1,3 @@
+const CACHE_POKEMON = 'CACHE_POKEMON';
+
+export default CACHE_POKEMON;
