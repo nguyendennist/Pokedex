@@ -11,7 +11,7 @@
     "lint": "eslint --ext .jsx,.js src",
     "prebuild": "rimraf dist",
     "predev-build": "rimraf dist",
-    "server": "http-server",
+    "start": "http-server",
     "test": "jest",
     "update-snapshot": "jest --updateSnapshot",
     "validate": "npm-run-all --parallel lint build test"

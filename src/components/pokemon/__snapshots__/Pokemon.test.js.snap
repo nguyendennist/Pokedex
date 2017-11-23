@@ -3,15 +3,61 @@
 exports[`ui tests should render correctly 1`] = `
 <div
   className="pokemon"
+  onClick={[Function]}
 >
-  <img
-    alt="A pokemon named bulbasaur"
-    src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-  />
-  <p
-    className="pokemon-text"
+  <div
+    className="pokemon-height-and-weight"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
   >
-    bulbasaur
-  </p>
+    <div>
+      <p>
+        Height
+        <br />
+        7
+      </p>
+      <p>
+        Weight
+        <br />
+        69
+      </p>
+    </div>
+  </div>
+  <div
+    className="pokemon-image-and-name"
+  >
+    <img
+      alt="A pokemon named bulbasaur"
+      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+    />
+    <p
+      className="pokemon-text"
+    >
+      bulbasaur
+    </p>
+  </div>
+  <div
+    className="pokemon-abilities"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <div>
+      <p>
+        Abilities
+      </p>
+      <p>
+        chlorophyll
+      </p>
+      <p>
+        overgrow
+      </p>
+    </div>
+  </div>
 </div>
 `;

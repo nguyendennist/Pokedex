@@ -10,7 +10,7 @@ const NextButton = props => {
 
 		if (doneLoading) {
 			props.handleOffsetChange();
-			setTimeout(() => props.fetchPokemons(), 250);
+			setTimeout(() => props.fetchPokemons(), 200);
 		}
 	};
 
