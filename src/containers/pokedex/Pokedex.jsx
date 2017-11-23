@@ -70,8 +70,7 @@ Pokedex.propTypes = {
 	handleCachePokemonChange: PropTypes.func.isRequired,
 	handleSetViewPokemonsChange: PropTypes.func.isRequired,
 	offset: PropTypes.number.isRequired,
-	pokemons: PropTypes.array.isRequired,
-	viewPokemons: PropTypes.array.isRequired
+	pokemons: PropTypes.array.isRequired
 };
 
 const mapDispatchToProps = dispatch => ({
@@ -88,8 +87,7 @@ const mapDispatchToProps = dispatch => ({
 
 const mapStateToProps = state => ({
 	offset: state.offset,
-	pokemons: state.pokemons,
-	viewPokemons: state.viewPokemons
+	pokemons: state.pokemons
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pokedex);

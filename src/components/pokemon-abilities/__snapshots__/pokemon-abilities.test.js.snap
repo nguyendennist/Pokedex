@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ui tests should render correctly 1`] = `
+<div
+  className="pokemon-abilities"
+  style={Object {}}
+>
+  <div>
+    <p>
+      Ability
+    </p>
+  </div>
+</div>
+`;
