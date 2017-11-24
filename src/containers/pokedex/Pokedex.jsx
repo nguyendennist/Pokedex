@@ -12,43 +12,50 @@ class Pokedex extends Component {
 	constructor(props) {
 		super(props);
 
-		this.fetchPokemons = this.fetchPokemons.bind(this);
-		this.fetchPokemons();
+		this.getPokemons = this.getPokemons.bind(this);
+		this.getPokemons();
 	}
 
-	fetchPokemons() {
-		const offset = this.props.offset;
+	fetchAndCachePokemons(offset) {
 		let id = offset + 1;
 		let start = id;
 		const stop = start + 20;
+
+		this.props.handleSetViewPokemonsChange([]);
+
+		while (start < stop) {
+			(id => {
+				const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+
+				fetch(url, {
+					method: 'GET'
+				}).then(response => {
+					response.json().then(pokemonData => {
+						this.props.handleAddViewPokemonChange(pokemonData);
+						this.props.handleCachePokemonChange(pokemonData);
+					});
+				});
+
+			})(id);
+
+			id++;
+			start++;
+		}
+	}
+
+	getCachedPokemons(offset) {
+		const cachedPokemons = this.props.pokemons.slice(offset, offset + 20);
+		this.props.handleSetViewPokemonsChange(cachedPokemons);
+	}
+
+	getPokemons() {
+		const offset = this.props.offset;
 		const pokemonsAreCached = offset < this.props.pokemons.length;
 
-
 		if (pokemonsAreCached) {
-			const cachedPokemon = this.props.pokemons.slice(offset, offset + 20);
-			this.props.handleSetViewPokemonsChange(cachedPokemon);
+			this.getCachedPokemons(offset);
 		} else {
-			this.props.handleSetViewPokemonsChange([]);
-
-			while (start < stop) {
-				(id => {
-					const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-
-					fetch(url, {
-						method: 'GET'
-					}).then(response => {
-						response.json().then(pokemonData => {
-							this.props.handleAddViewPokemonChange(pokemonData);
-							this.props.handleCachePokemonChange(pokemonData);
-						});
-					});
-
-				})(id);
-
-				id++;
-				start++;
-			}
-
+			this.fetchAndCachePokemons(offset);
 		}
 	}
 
@@ -56,8 +63,8 @@ class Pokedex extends Component {
 		return (
 			<div>
 				<div className='buttons'>
-					<PrevButton fetchPokemons={this.fetchPokemons} />
-					<NextButton fetchPokemons={this.fetchPokemons} />
+					<PrevButton getPokemons={this.getPokemons} />
+					<NextButton getPokemons={this.getPokemons} />
 				</div>
 				<PokemonList />
 			</div>

@@ -14,7 +14,7 @@ describe('ui tests', () => {
 	test('should render correctly', () => {
 		const tree = create(
 			<Provider store={store}>
-				<PrevButton fetchPokemons={() => {}} />
+				<PrevButton getPokemons={() => {}} />
 			</Provider>
 		).toJSON();
 

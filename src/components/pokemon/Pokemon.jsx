@@ -13,18 +13,33 @@ export default class Pokemon extends Component {
 		this.onClick = this.onClick.bind(this);
 	}
 
+	componentDidUpdate(prevProps) {
+		const oldPokemonId = prevProps.pokemonData.id;
+		const newPokemonId = this.props.pokemonData.id;
+
+		if (oldPokemonId !== newPokemonId) {
+			this.resetShowMoreInfo();
+		}
+	}
+
+	changeShowMoreInfo(value) {
+		this.setState({
+			showMoreInfo: value
+		});
+	}
+
 	onClick() {
 		this.setState(prevState => {
-			const newState = {};
-
 			if (prevState.showMoreInfo === 'none') {
-				newState.showMoreInfo = 'inline-block';
+				this.changeShowMoreInfo('inline-block');
 			} else {
-				newState.showMoreInfo = 'none';
+				this.changeShowMoreInfo('none');
 			}
-
-			return newState;
 		});
+	}
+
+	resetShowMoreInfo() {
+		this.changeShowMoreInfo('none');
 	}
 
 	render() {

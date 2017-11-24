@@ -10,7 +10,7 @@ const PrevButton = props => {
 
 		if (doneLoading) {
 			props.handleOffsetChange();
-			setTimeout(() => props.fetchPokemons(props.offset + 20), 200);
+			setTimeout(() => props.getPokemons(), 200);
 		}
 	};
 
@@ -18,7 +18,7 @@ const PrevButton = props => {
 };
 
 PrevButton.propTypes = {
-	fetchPokemons: PropTypes.func.isRequired,
+	getPokemons: PropTypes.func.isRequired,
 	handleOffsetChange: PropTypes.func.isRequired,
 	offset: PropTypes.number.isRequired,
 	viewPokemons: PropTypes.array.isRequired
