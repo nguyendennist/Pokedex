@@ -1,6 +1,6 @@
 # Pokedex
 
-Pokedex was built using React, Redux, Webpack, Eslint, and the Pokemon API.
+Pokedex was built using Babel, ESLint, Jest, React, Redux, Webpack, and the Pokemon API.
 
 ## Table of Contents
 

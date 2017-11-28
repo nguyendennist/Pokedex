@@ -8,7 +8,7 @@
     "build": "webpack --env.prod -p",
     "dev-build": "webpack --env.dev",
     "dev-server": "webpack-dev-server --env.dev",
-    "lint": "eslint --ext .jsx,.js src",
+    "lint": "eslint --ext .jsx,.js ./",
     "prebuild": "rimraf dist",
     "predev-build": "rimraf dist",
     "start": "http-server",
