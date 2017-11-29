@@ -5,19 +5,19 @@ import store from 'store';
 import NextButton from './NextButton.jsx';
 
 describe('unit tests', () => {
-	test('should be defined', () => {
-		expect(NextButton).toBeDefined();
-	});
+  test('should be defined', () => {
+    expect(NextButton).toBeDefined();
+  });
 });
 
 describe('ui tests', () => {
-	test('should render correctly', () => {
-		const tree = create(
-			<Provider store={store}>
-				<NextButton getPokemons={() => {}} />
-			</Provider>
-		).toJSON();
+  test('should render correctly', () => {
+    const tree = create(
+      <Provider store={store}>
+        <NextButton getPokemons={() => {}} />
+      </Provider>
+    ).toJSON();
 
-		expect(tree).toMatchSnapshot();
-	});
+    expect(tree).toMatchSnapshot();
+  });
 });

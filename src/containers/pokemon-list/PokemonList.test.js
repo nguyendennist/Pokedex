@@ -5,19 +5,19 @@ import store from 'store';
 import PokemonList from './PokemonList';
 
 describe('unit tests', () => {
-	test('should be defined', () => {
-		expect(PokemonList).toBeDefined();
-	});
+  test('should be defined', () => {
+    expect(PokemonList).toBeDefined();
+  });
 });
 
 describe('ui tests', () => {
-	test('should render correctly', () => {
-		const tree = create(
-			<Provider store={store}>
-				<PokemonList />
-			</Provider>
-		).toJSON();
+  test('should render correctly', () => {
+    const tree = create(
+      <Provider store={store}>
+        <PokemonList />
+      </Provider>
+    ).toJSON();
 
-		expect(tree).toMatchSnapshot();
-	});
+    expect(tree).toMatchSnapshot();
+  });
 });

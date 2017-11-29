@@ -5,19 +5,19 @@ import store from 'store';
 import PrevButton from './PrevButton.jsx';
 
 describe('unit tests', () => {
-	test('should be defined', () => {
-		expect(PrevButton).toBeDefined();
-	});
+  test('should be defined', () => {
+    expect(PrevButton).toBeDefined();
+  });
 });
 
 describe('ui tests', () => {
-	test('should render correctly', () => {
-		const tree = create(
-			<Provider store={store}>
-				<PrevButton getPokemons={() => {}} />
-			</Provider>
-		).toJSON();
+  test('should render correctly', () => {
+    const tree = create(
+      <Provider store={store}>
+        <PrevButton getPokemons={() => {}} />
+      </Provider>
+    ).toJSON();
 
-		expect(tree).toMatchSnapshot();
-	});
+    expect(tree).toMatchSnapshot();
+  });
 });

@@ -6,19 +6,19 @@ import Pokedex from './Pokedex.jsx';
 import 'isomorphic-fetch';
 
 describe('unit tests', () => {
-	test('should be defined', () => {
-		expect(Pokedex).toBeDefined();
-	});
+  test('should be defined', () => {
+    expect(Pokedex).toBeDefined();
+  });
 });
 
 describe('ui tests', () => {
-	test('should render correctly', () => {
-		const tree = create(
-			<Provider store={store}>
-				<Pokedex />
-			</Provider>
-		).toJSON();
+  test('should render correctly', () => {
+    const tree = create(
+      <Provider store={store}>
+        <Pokedex />
+      </Provider>
+    ).toJSON();
 
-		expect(tree).toMatchSnapshot();
-	});
+    expect(tree).toMatchSnapshot();
+  });
 });

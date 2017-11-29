@@ -1,63 +1,63 @@
 import cachePokemon from './cache-pokemon';
 
 describe('unit tests', () => {
-	test('should be defined', () => {
-		expect(cachePokemon).toBeDefined();
-	});
+  test('should be defined', () => {
+    expect(cachePokemon).toBeDefined();
+  });
 
-	test('should cache a pokemon & retain previous state values', () => {
-		const action = {
-			type: 'ADD_POKEMON',
-			payload: {
-				height: 7,
-				id: 1,
-				name: 'bulbasaur',
-				sprites: {
-					front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
-				},
-				weight: 69
-			}
-		};
+  test('should cache a pokemon & retain previous state values', () => {
+    const action = {
+      type: 'ADD_POKEMON',
+      payload: {
+        height: 7,
+        id: 1,
+        name: 'bulbasaur',
+        sprites: {
+          front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
+        },
+        weight: 69
+      }
+    };
 
-		const state = {
-			offset: 0,
-			pokemons: [
-				{
-					height: 11,
-					id: 12,
-					name: 'butterfree',
-					sprites: {
-						'front_default': 'http://pokeapi.co/media/sprites/pokemon/12.png',
-					},
-					weight: 320
-				}
-			]
-		};
+    const state = {
+      offset: 0,
+      pokemons: [
+        {
+          height: 11,
+          id: 12,
+          name: 'butterfree',
+          sprites: {
+            'front_default': 'http://pokeapi.co/media/sprites/pokemon/12.png',
+          },
+          weight: 320
+        }
+      ]
+    };
 
-		const result = cachePokemon(state, action);
+    const result = cachePokemon(state, action);
 
-		expect(result).toEqual({
-			offset: 0,
-			pokemons: [
-				{
-					height: 11,
-					id: 12,
-					name: 'butterfree',
-					sprites: {
-						'front_default': 'http://pokeapi.co/media/sprites/pokemon/12.png',
-					},
-					weight: 320
-				},
-				{
-					height: 7,
-					id: 1,
-					name: 'bulbasaur',
-					sprites: {
-						front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
-					},
-					weight: 69
-				}
-			]
-		});
-	});
+    expect(result).toEqual({
+      offset: 0,
+      pokemons: [
+        {
+          height: 11,
+          id: 12,
+          name: 'butterfree',
+          sprites: {
+            'front_default': 'http://pokeapi.co/media/sprites/pokemon/12.png',
+          },
+          weight: 320
+        },
+        {
+          height: 7,
+          id: 1,
+          name: 'bulbasaur',
+          sprites: {
+            front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
+          },
+          weight: 69
+        }
+      ]
+    });
+  });
 });

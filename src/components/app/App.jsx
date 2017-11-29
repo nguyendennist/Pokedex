@@ -4,11 +4,11 @@ import store from 'store';
 import Pokedex from 'containers/pokedex/Pokedex.jsx';
 
 const App = () => (
-	<Provider store={store}>
-		<div>
-			<Pokedex />
-		</div>
-	</Provider>
+  <Provider store={store}>
+    <div>
+      <Pokedex />
+    </div>
+  </Provider>
 );
 
 export default App;
